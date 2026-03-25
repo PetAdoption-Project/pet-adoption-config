@@ -4,3 +4,14 @@ server:
 spring:
   application:
     name: user-service
+
+  datasource:
+    url: ${DATA_SOURCE_URL}
+    username: pet_user
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
