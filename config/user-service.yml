@@ -11,6 +11,7 @@ spring:
     password: ${DB_PASSWORD}
   jpa:
     hibernate:
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
       ddl-auto: validate
   flyway:
     enabled: true
