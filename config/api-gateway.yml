@@ -1,6 +1,11 @@
 server:
   port: 8080
 
+keycloak:
+  introspection-uri: "${KEYCLOAK_URL}/realms/pet-adoption/protocol/openid-connect/token/introspect"
+  client-id: "pet-adoption"
+  client-secret: "${KEYCLOAK_CLIENT_SECRET}"
+
 spring:
   security:
     oauth2:
