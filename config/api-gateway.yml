@@ -1,17 +1,12 @@
 server:
   port: 8080
 
-keycloak:
-  introspection-uri: "${KEYCLOAK_URL}/realms/pet-adoption/protocol/openid-connect/token/introspect"
-  client-id: "pet-adoption"
-  client-secret: "${KEYCLOAK_CLIENT_SECRET}"
-
 spring:
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${KEYCLOAK_URL}/realms/pet-adoption
+          issuer-uri: ${keycloak-url}/realms/${keycloak-realm}
   cloud:
     gateway:
       routes:
@@ -20,7 +15,8 @@ spring:
           predicates:
             - Path=/api/users/**, /api/auth/**
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_URL}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

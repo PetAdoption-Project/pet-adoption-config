@@ -2,14 +2,29 @@ spring:
   mvc:
     problemdetails:
       enabled: true
+  config:
+    import:
+      - vault://secret/petadoption/services
+  cloud:
+    vault:
+      authentication: token
+      token: ${VAULT_TOKEN}
 
 management:
   endpoints:
     web:
       exposure:
         include: health,info
+  tracing:
+    sampling:
+      probability: 1.0
+
+logging:
+  level:
+    root: INFO
+    com.ua.petadoption: DEBUG
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URL}
+      defaultZone: http://${EUREKA_HOST:localhost}:8761/eureka/

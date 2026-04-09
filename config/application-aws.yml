@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    vault:
+      authentication: aws_iam
+      aws-iam:
+        role: ${VAULT_AWS_ROLE}
