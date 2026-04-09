@@ -6,9 +6,9 @@ spring:
     name: user-service
 
   datasource:
-    url: ${DATA_SOURCE_URL}
-    username: pet_user
-    password: ${DB_PASSWORD}
+    url: ${db-url}
+    username: ${db-username}
+    password: ${db-password}
   jpa:
     hibernate:
       database-platform: org.hibernate.dialect.PostgreSQLDialect
@@ -16,3 +16,11 @@ spring:
   flyway:
     enabled: true
     locations: classpath:db/migration
+
+keycloak:
+  server-url: ${keycloak-url}
+  realm: ${keycloak-realm}
+  admin-client-id: ${keycloak-admin-client-id}
+  admin-client-secret: ${keycloak-admin-client-secret}
+  gateway-client-id: ${keycloak-gateway-client-id}
+  gateway-client-secret: ${keycloak-gateway-client-secret}
