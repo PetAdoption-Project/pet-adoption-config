@@ -9,11 +9,13 @@ spring:
           issuer-uri: ${keycloak-url}/realms/${keycloak-realm}
   cloud:
     gateway:
-      routes:
-        - id: user-service
-          uri: lb://user-service
-          predicates:
-            - Path=/api/users/**, /api/auth/**
+      server:
+        webflux:
+          routes:
+            - id: user-service
+              uri: lb://user-service
+              predicates:
+                - Path=/api/users/**, /api/auth/**
 
 management:
   endpoints:
