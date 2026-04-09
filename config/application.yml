@@ -2,13 +2,6 @@ spring:
   mvc:
     problemdetails:
       enabled: true
-  config:
-    import:
-      - vault://secret/petadoption/services
-  cloud:
-    vault:
-      authentication: token
-      token: ${VAULT_TOKEN}
 
 management:
   endpoints:
