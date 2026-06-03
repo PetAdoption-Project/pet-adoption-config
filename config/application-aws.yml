@@ -4,3 +4,8 @@ spring:
       authentication: aws_iam
       aws-iam:
         role: ${VAULT_AWS_ROLE}
+
+management:
+  tracing:
+    sampling:
+      probability: 0.1
